@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "Hopfield and Transformer Experiments"
+version = "0.1.0"
+description = "Transformers versus Hopfield Networks for Neural Decoding Tasks"
+authors = [
+    { name = "Johannes Bauer", email = "you@email.com" }
+]
+
+readme = "README.md"
+requires-python = ">=3.10.18"
+
+dependencies = [
+    "torch_brain",
+    "streamlit",
+    "pandas",
+    "numpy",
+]
