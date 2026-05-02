@@ -1,1 +1,98 @@
-# Our cognitive science project
+# Neural Decoding and Equivalent Systems
+
+This project is for understanding the equivalence between models 
+
+## Collaborations
+
+The main collaborators of this project are Elif Ercek and Johannes Bauer
+
+## Dependencies
+
+For this project, we use only Python in order to build our models. The code is written for either Google Colab Notebooks and Anaconda.
+
+For Python, the main python libraries we use are:
+
+    - PyTorch
+    - TorchBrain
+    - Hopfield Git Repo
+    - Matplotlib
+
+How to setup and run our code is briefly discussed in the next section.
+
+## Instructions for quick-run script and demo
+
+1. Setting up the Environemnt
+
+**Google Colab Environment Setup**
+
+To run our code, there are two option. The first option is to use jupyter notebooks. If so, the simple commands you need to run in the first cell are:
+
+```python
+
+!pip install hflayers
+!pip install git+https://github.com/ml-jku/hopfield-layers
+```
+
+This setup can only be used to run the google colab notebokets in the notebook directory. Else, follow the instructions below.
+
+**Command Line Setup**
+
+For this setup, we have two options. The first option is to first setup a conda virtual environment
+
+```bash
+conda create -n streamlit_env -python=3.10
+
+conda activate streamlit_env
+
+```
+
+Secondn, we need to download the required python libraryes:
+
+```bash
+conda install streamlit
+conda install matplotlib
+
+pip install pytorch_brain -q   
+pip install git+https://github.com/ml-jku/hopfield-layers
+```
+
+Finally, you can setup our git repo.
+
+```bash
+git clone https://github.com/john84122/neural_decode.git
+pip install -e .
+```
+
+When pip installed, you can use the code as a Python Library named neural_decode. A simple example is shown below:
+
+```python
+from neural_decode.models.hopfield_only import *
+
+...
+
+```
+
+*Some Additional Notes on Task*
+- A common error when installing is the need for a earlier version of numpy. If run into this in the scripts, just run the line in the command line with the virtual environment:
+
+```bash
+conda install "numpy<2"
+'''
+
+- In addition, if this setup is too difficult, please consider using the environment.yaml file for setup.
+
+```bash
+ conda env create -f environment.yml
+'''
+
+2. Conducting a Quick Run of Experiments:
+
+
+
+3. Full Evaluation Pipeline:
+
+4. Demo code:
+
+## Outputs and Save Files
+
+## Links to External Datasets
