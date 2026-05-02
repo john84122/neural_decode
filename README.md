@@ -77,22 +77,55 @@ from neural_decode.models.hopfield_only import *
 
 ```bash
 conda install "numpy<2"
-'''
+```
 
 - In addition, if this setup is too difficult, please consider using the environment.yaml file for setup.
 
 ```bash
  conda env create -f environment.yml
-'''
+```
 
 2. Conducting a Quick Run of Experiments:
 
-
+For a quick evaluation of pipeline, see the quick Tutorials in the notebooks directory.
 
 3. Full Evaluation Pipeline:
 
+For full evaluation, please see the full_evaluation.py script.
+
 4. Demo code:
+
+All demo code is within the demo_code Directory. To run, do the following on a laptop with some web browser.
+
+```bash
+
+cd demo_code
+streamlit run main_application.py
+
+```
 
 ## Outputs and Save Files
 
+Output of models and data used will be in the data and results directory. Specifically,
+
+a. **data/perich_miller_population_2018** - Directory containing the data used to train our transformers and hopfield networks.
+b. **results/models** - Directory containing the models we trained (.pth files)
+c. **results/embeddings** - Directory containing the embeddings we analyzed.
+d. **results/explanations** - Directory containing the explanaitions we have collected.
+
 ## Links to External Datasets
+
+The links to the datasets we collected is from the torchbrain repository.
+
+    - Link: https://brainsets.readthedocs.io/en/latest/glossary/brainsets.html#perich-miller-population-2018
+
+To download the dataset, type the following in the command line.
+
+```bash
+cd ./neuro_comp_project
+
+pip install gdown
+gdown 1W--Sm_BcphEC2snoF4zwPdHkkYGgAaUw -O data/perich_miller_population_2018/t_20130819_center_out_reaching.h5
+```
+
+This dataset will be downloaded into the data/perich_miller_population_2018 directory.
