@@ -1,11 +1,11 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
-name = "Hopfield and Transformer Experiments"
+name = "neural_decode"
 version = "0.1.0"
-description = "Transformers versus Hopfield Networks for Neural Decoding Tasks"
+description = "Scripts for Transformers versus Hopfield Networks for Neural Decoding Tasks"
 authors = [
     { name = "Johannes Bauer", email = "you@email.com" }
 ]
@@ -16,6 +16,7 @@ requires-python = ">=3.10.18"
 dependencies = [
     "torch_brain",
     "streamlit",
+    "matplotlib",
     "pandas",
     "numpy",
 ]
