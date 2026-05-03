@@ -14,6 +14,15 @@ def generate_sinusoidal_position_embs(num_timesteps, dim):
     pe[:, dim//2:] = torch.cos(position * div_term)
     return pe
 
+def bin_spikes(spikes, num_units, bin_size, right=True, num_bins=None):
+    """
+    Bins spike timestamps into a 2D array: [num_units x num_bins].
+    """
+    rate = 1 / bin_size  # avoid precision issues
+    binned_spikes = np.zeros((num_units, num_bins))
+    bin_index = np.floor((spikes.timestamps) * rate).astype(int)
+    np.add.at(binned_spikes, (spikes.unit_index, bin_index), 1)
+    return binned_spikes
 
 def load_pretrained(ckpt_path, model):
     print("Loading pretrained model...")

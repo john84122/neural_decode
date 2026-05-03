@@ -7,7 +7,7 @@ from neural_decode.evaluation.metrics_for_performance import compute_r2, move_to
 
 
 
-def train(model, optimizer, train_loader, val_loader, num_epochs=50, store_embs=False):
+def train(model, optimizer, train_loader, val_loader, num_epochs=50, store_embs=False, device = "cpu"):
     # We'll store some intermediate outputs for visualization
     train_outputs = {
         'n_epochs': num_epochs,

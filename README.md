@@ -12,10 +12,10 @@ For this project, we use only Python in order to build our models. The code is w
 
 For Python, the main python libraries we use are:
 
-    - PyTorch
-    - TorchBrain
-    - Hopfield Git Repo
-    - Matplotlib
+- PyTorch
+- TorchBrain
+- Hopfield Git Repo
+- Matplotlib
 
 How to setup and run our code is briefly discussed in the next section.
 
@@ -89,13 +89,15 @@ conda install "numpy<2"
 
 For a quick evaluation of pipeline, see the quick Tutorials in the notebooks directory.
 
-3. Full Evaluation Pipeline:
+- A simple script for training_and_evaluation: **training_and_evaluation.ipynb**
 
-For full evaluation, please see the full_evaluation.py script.
+1. Full Evaluation Pipeline:
+
+For full evaluation, please see the **full_evaluation.py** script.
 
 4. Demo code:
 
-All demo code is within the demo_code Directory. To run, do the following on a laptop with some web browser.
+All demo code is within the **demo_code** Directory. To run, do the following on a laptop with some web browser.
 
 ```bash
 
@@ -108,10 +110,10 @@ streamlit run main_application.py
 
 Output of models and data used will be in the data and results directory. Specifically,
 
-a. **data/perich_miller_population_2018** - Directory containing the data used to train our transformers and hopfield networks.
-b. **results/models** - Directory containing the models we trained (.pth files)
-c. **results/embeddings** - Directory containing the embeddings we analyzed.
-d. **results/explanations** - Directory containing the explanaitions we have collected.
+* **data/perich_miller_population_2018** - Directory containing the data used to train our transformers and hopfield networks.
+* **results/models** - Directory containing the models we trained (.pth files)
+* **results/embeddings** - Directory containing the embeddings we analyzed.
+* **results/explanations** - Directory containing the explanaitions we have collected.
 
 ## Links to External Datasets
 
@@ -129,3 +131,8 @@ gdown 1W--Sm_BcphEC2snoF4zwPdHkkYGgAaUw -O data/perich_miller_population_2018/t_
 ```
 
 This dataset will be downloaded into the data/perich_miller_population_2018 directory.
+
+## Additional Details
+
+- For a good description of the repository, please see the the **description_of_repo.md** markdown file.
+- For our policies and usages on Generative LLMs, see our **llm_policy.md** file.

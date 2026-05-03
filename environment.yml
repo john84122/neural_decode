@@ -175,4 +175,3 @@ dependencies:
       - typing-inspection==0.4.2
       - tzdata==2026.1
       - urllib3==2.6.3
-prefix: /Users/johannesbauer/opt/anaconda3/envs/streamlit_env
