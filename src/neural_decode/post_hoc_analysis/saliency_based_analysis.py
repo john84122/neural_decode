@@ -33,6 +33,14 @@ def return_normalized_and_aggregated_attribution(attrib_output):
 
     return normed_attrib
 
+def compute_and_return_attribution_maps(models, dataset):
+
+    attribution_vals = get_attribution(models, dataset)
+
+    normalized_attribution = return_normalized_and_aggregated_attribution(attribution_vals)
+
+    return normalized_attribution
+
 def main():
     pass
 

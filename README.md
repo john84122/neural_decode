@@ -1,6 +1,6 @@
-# Neural Decoding and Equivalent Systems
+# Using Neural Decoding to Establish Architectural Equivalence
 
-This project is for understanding the equivalence between models 
+This project is to three models on a neural decoding tasks and demonstrate the equivalence between Hopfield Models, Transformers, and a combined Hopfield + Transformer Architecture. We establish this comparison by using their performance on a validation set and differences in Saliency Maps.
 
 ## Collaborations
 
@@ -10,6 +10,8 @@ The main collaborators of this project are Elif Ercek and Johannes Bauer
 
 For this project, we use only Python in order to build our models. The code is written for either Google Colab Notebooks and Anaconda.
 
+Python Version: 3.10
+
 For Python, the main python libraries we use are:
 
 - PyTorch
@@ -17,27 +19,7 @@ For Python, the main python libraries we use are:
 - Hopfield Git Repo
 - Matplotlib
 
-How to setup and run our code is briefly discussed in the next section.
-
-## Instructions for quick-run script and demo
-
-1. Setting up the Environemnt
-
-**Google Colab Environment Setup**
-
-To run our code, there are two option. The first option is to use jupyter notebooks. If so, the simple commands you need to run in the first cell are:
-
-```python
-
-!pip install hflayers
-!pip install git+https://github.com/ml-jku/hopfield-layers
-```
-
-This setup can only be used to run the google colab notebokets in the notebook directory. Else, follow the instructions below.
-
-**Command Line Setup**
-
-For this setup, we have two options. The first option is to first setup a conda virtual environment
+Much of the training and evaluation code was done in google colab, but to setup a conda environment to run this code, one can follow the following steps on the command line. First, install conda, if not done so already, and create a new conda environment.
 
 ```bash
 conda create -n streamlit_env -python=3.10
@@ -46,7 +28,7 @@ conda activate streamlit_env
 
 ```
 
-Secondn, we need to download the required python libraryes:
+Second, we need to download the required python libraryes:
 
 ```bash
 conda install streamlit
@@ -85,17 +67,38 @@ conda install "numpy<2"
  conda env create -f environment.yml
 ```
 
-2. Conducting a Quick Run of Experiments:
+## Instructions for quick-run script and demo
+1. Conducting a Quick Run of Experiments:
 
-For a quick evaluation of pipeline, see the quick Tutorials in the notebooks directory.
+For a quick evaluation of pipeline, see the quick Tutorials in the additional_scripts directory. we have two options for you.
 
-- A simple script for training_and_evaluation: **training_and_evaluation.ipynb**
+- A Jupyter notebook method: **quick_run.ipynb**
 
-1. Full Evaluation Pipeline:
+- A .py script for a quick tutorial: **quick_run.py**
 
-For full evaluation, please see the **full_evaluation.py** script.
+The exact results of our analysis can be seen in the results/quick_run_results directory. The output on the command line is in output.txt and also 3 figures.
 
-4. Demo code:
+At a high level, this is what should be shown:
+
+    1. A line saying you are using the cpu.
+    2. Lines saying the number of baches in a dataloader as well as last dimension of input.
+    3. The architectures of the three loaded models.
+    4. Training information for three Epochs of each Model as well as R2 validation score.
+    5. Three saved images in the results/quick_run_results directory showing training dynamics curves.
+    6. The dimensions of UMAP embeddings.
+    7. The dimensions of Saliency maps along with the minimum and maximum values.
+
+
+2. Full Evaluation Pipeline:
+
+Our full analysis is in the additional_scripts/full_pipeline area of our code.
+
+- For anything due to training and evaluating models, please see the training_and_evaluation.ipynb in google colab. There are already cells in this script to take care of setting up important Python Libraries.
+
+- For post hoc analysis, run the training_and_evaluation.ipynb script.
+
+
+1. Demo code:
 
 All demo code is within the **demo_code** Directory. To run, do the following on a laptop with some web browser.
 
@@ -112,6 +115,7 @@ Output of models and data used will be in the data and results directory. Specif
 
 * **data/perich_miller_population_2018** - Directory containing the data used to train our transformers and hopfield networks.
 * **results/models** - Directory containing the models we trained (.pth files)
+* * **results/evaluations** - Where all accuracies of models over each epoch were saved.
 * **results/embeddings** - Directory containing the embeddings we analyzed.
 * **results/explanations** - Directory containing the explanaitions we have collected.
 
