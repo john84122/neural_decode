@@ -1,5 +1,8 @@
 # Using Neural Decoding to Establish Architectural Equivalence
 
+![Our Logo](results/misc/icon_for_git_page.png)
+
+
 This project is to three models on a neural decoding tasks and demonstrate the equivalence between Hopfield Models, Transformers, and a combined Hopfield + Transformer Architecture. We establish this comparison by using their performance on a validation set and differences in Saliency Maps.
 
 ## Collaborations
