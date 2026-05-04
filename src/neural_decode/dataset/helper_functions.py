@@ -1,3 +1,7 @@
+'''
+A set of scripts that mainly help with loading the dataset for neural decoding tasks.
+'''
+
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,6 +11,11 @@ import logging
 from torch_brain.utils import seed_everything
 
 def generate_sinusoidal_position_embs(num_timesteps, dim):
+    '''
+    A augmentation function done to the positional embedding layers of each of the three models. Note: this is taken from
+    the cosyne jupyter notebook on transformers. To find it, follow this link:
+        - https://cosyne-tutorial-2025.github.io
+    '''
     position = torch.arange(num_timesteps).unsqueeze(1)
     div_term = torch.exp(torch.arange(0, dim, 2) * (-np.log(10000.0) / dim))
     pe = torch.empty(num_timesteps, dim)
@@ -25,6 +34,9 @@ def bin_spikes(spikes, num_units, bin_size, right=True, num_bins=None):
     return binned_spikes
 
 def load_pretrained(ckpt_path, model):
+    '''
+    Loads the pretrained models from a given checkpoint path and model.
+    '''
     print("Loading pretrained model...")
     checkpoint = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     # poyo is pretrained using lightning, so model weights are prefixed with "model."
@@ -34,12 +46,10 @@ def load_pretrained(ckpt_path, model):
     return model
 
 
-def reinit_vocab(emb_module, vocab):
-    emb_module.extend_vocab(vocab)
-    emb_module.subset_vocab(vocab)
-
-
 def get_dataset_config(brainset, sessions):
+    '''
+    Gets a configuration for the brain dataset.
+    '''
     brainset_norms = {
         "perich_miller_population_2018": {
             "mean": 0.0,

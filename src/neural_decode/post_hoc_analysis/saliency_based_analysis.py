@@ -1,7 +1,13 @@
+'''
+Simple python functions for collecting and normalizing attribution maps for the models.
+'''
 
 import numpy as np
 
 def get_attribution(model, dataset):
+    '''
+    A simple function that does on backpropagation step for each batch and collects the gradients as attribution maps.
+    '''
     model.eval()
     attrib_output = []
 
@@ -11,7 +17,7 @@ def get_attribution(model, dataset):
         x_inp = batch["model_inputs"]["x"].requires_grad_(True)
 
         out = model(x_inp)
-        loss = ((out - labels) ** 2).sum()
+        loss = ((out - labels) ** 2).sum() # Note - this is here because output is 2d and wanted to get a single scalar.
         loss.backward()
 
         attrib_output.append(x_inp.grad.abs().detach().cpu().numpy())
@@ -19,6 +25,9 @@ def get_attribution(model, dataset):
     return attrib_output
 
 def return_normalized_and_aggregated_attribution(attrib_output):
+    '''
+    Return normalized and aggregated attribution maps from the get_attribution function call into one numpy array.
+    '''
 
     stacked_attrib = np.concatenate(attrib_output, axis=0)
 
@@ -34,6 +43,9 @@ def return_normalized_and_aggregated_attribution(attrib_output):
     return normed_attrib
 
 def compute_and_return_attribution_maps(models, dataset):
+    '''
+    Compute and return normalized attribution maps for the given models and dataset.
+    '''
 
     attribution_vals = get_attribution(models, dataset)
 

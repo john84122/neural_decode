@@ -1,5 +1,5 @@
 '''
-    Basic scripts to do 
+    Basic script which defines the training loop for all models. For default configurations, see the full_pipline script.
 '''
 
 import torch.nn.functional as F
@@ -8,7 +8,9 @@ from neural_decode.evaluation.metrics_for_performance import compute_r2, move_to
 
 
 def train(model, optimizer, train_loader, val_loader, num_epochs=50, store_embs=False, device = "cpu"):
-    # We'll store some intermediate outputs for visualization
+    '''
+    Defines the basic training for all models in our experiments.
+    '''
     train_outputs = {
         'n_epochs': num_epochs,
         'unit_emb': [],
@@ -50,6 +52,10 @@ def train(model, optimizer, train_loader, val_loader, num_epochs=50, store_embs=
 
 
 def training_step(batch, model, optimizer):
+    '''
+    Defines one forward and backward pass for a given batch of data. A unique component of this function is that it must pull out a batch which is of a form of a dictionary.
+    '''
+
     optimizer.zero_grad()                  # Step 0. Clear old gradients
     pred = model(**batch["model_inputs"])  # Step 1. Do forward pass
     target = batch["target_values"]

@@ -1,3 +1,6 @@
+'''
+Defines the transformer + hopfield model used in experiments.
+'''
 import torch
 import torch.nn as nn
 
@@ -11,6 +14,9 @@ class TransformerHopfieldDecoder(nn.Module):
         self, num_units, bin_size, sequence_length,
         dim_output, dim_hidden, n_layers, n_heads,
     ):
+        '''
+        Defines the transformer + hopfield model. This model contains of multiple attention heads and one second to last hopfield layer.
+        '''
         super().__init__()
 
         self.num_timesteps = int(sequence_length / bin_size)
@@ -49,7 +55,9 @@ class TransformerHopfieldDecoder(nn.Module):
         )
 
     def forward(self, x):
-
+        '''
+        The forward pass of the model.
+        '''
         # Read-in
         x = self.readin(x)
 
@@ -71,6 +79,10 @@ class TransformerHopfieldDecoder(nn.Module):
         return x
 
     def tokenize(self, data):
+        '''
+        Method for tokenizing the data before training. Call using model.transform = model.tokenize
+        '''
+
 
         x = bin_spikes(
             spikes=data.spikes,

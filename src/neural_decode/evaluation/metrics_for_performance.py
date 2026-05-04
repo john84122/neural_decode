@@ -1,5 +1,5 @@
 '''
-    Simple scripts to evaulate and train models.
+    Simple script to evaluate the trained models.
 '''
 
 import torch
@@ -25,6 +25,9 @@ def move_to_gpu(data, device):
 
 
 def r2_score(y_pred, y_true):
+    '''
+    Computes the R^2 scores for a given collection of predictions and true values. This is mainly used for the validation set.
+    '''
     # Compute total sum of squares (variance of the true values)
     y_true_mean = torch.mean(y_true, dim=0, keepdim=True)
     ss_total = torch.sum((y_true - y_true_mean) ** 2)
@@ -38,6 +41,9 @@ def r2_score(y_pred, y_true):
     return r2
 
 def compute_r2(dataloader, model, device = "cpu"):
+    '''
+    Computes the R^2 scores given a dataloader, model, and device. Note that this is the main function which should be use for evlauating the models, not the r2_score function directly.
+    '''
     # Compute R2 score over the entire dataset
     total_target = []
     total_pred = []
@@ -79,24 +85,3 @@ def print_model(model: torch.nn.Module):
     else:
         param_str = f"{num_params/1e3:.1f}K"
     print(f"\nNumber of parameters: {param_str}\n")
-
-
-def plot_training_curves(r2_log, loss_log):
-    """
-    Plots the training curves: training loss and validation R2 score.
-    """
-    plt.figure(figsize=(12, 4))
-    plt.subplot(1, 2, 1)
-    plt.plot(np.linspace(0, len(loss_log), len(loss_log)), loss_log)
-    plt.title("Training Loss")
-    plt.xlabel("Training Steps")
-    plt.ylabel("MSE Loss")
-    plt.grid()
-    plt.subplot(1, 2, 2)
-    plt.plot(r2_log)
-    plt.title("Validation R2")
-    plt.xlabel("Epochs")
-    plt.ylabel("R2 Score")
-    plt.grid()
-    plt.tight_layout()
-    plt.show()
