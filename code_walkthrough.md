@@ -37,3 +37,33 @@ There are five different directories which we will briefly go over:
 ## The Source Code
 
 For each source file, we will go over the main scripts in each of these cases.
+
+1. **dataset**
+
+*helper_functions.py*
+
+*transformer_dataloader.py*
+
+2. **models**
+
+*hopfield_only.py*
+
+*transformer_hopfield.py*
+
+*transformer.py*
+
+3. **training**
+
+*train_model.py*
+
+4. **evaluation**
+
+*graphing_functions.py*
+
+*metrics_for_performance*
+
+5. **post_hoc_analysis**
+
+*embedding_analysis.py*
+
+*saliency_based_analysis.py*
