@@ -211,4 +211,8 @@ The tokenizer first defines inputs  as the binned data. Then, the output is the 
 * combines the last two functions into one - computes attribution maps for a given function and dataset and returns the normalized inputs.
 
 
+## Additional Scripts
 
+- Some jupyter notebooks and quick runs are in the additional_scripts directory. This includes our full pipeline as well as quick_tutorial scripts. Many of the function calls used in these scripts are really just demonstrations of the function calls defined in the src file.
+
+- We specifically designed the code in the quick_tutorial.py and quick_tutorial.ipynb to be fairly clean and hopefully interpretable. Given we give a brief description of these in the README.md file and these are not the main function calls we defined for our project, we will not go into detail here.
