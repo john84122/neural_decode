@@ -1,0 +1,39 @@
+---------------------------------- CONDA ENVIRONMENT SETUP AND INSTALLATION ----------------------------------
+NOTE: This assumes that you have anaconda install on your computer.
+
+If you do not, one can get it here:
+    - https://www.anaconda.com/download
+
+Else, use the following in order to setup the environment:
+
+conda create -n neural_decode_env python=3.10
+conda activate neural_decode_env
+
+conda install -c conda-forge "numpy<2"
+
+conda install -c conda-forge matplotlib umap-learn plotly
+
+pip install streamlit streamlit-webrtc numpy pandas
+pip install pytorch_brain
+pip install git+https://github.com/ml-jku/hopfield-layers
+
+git clone https://github.com/john84122/neural_decode.git    <<<< if you don't already have this on your computer
+
+cd ~/neural_comp_project
+pip install .
+
+conda install numba=0.60.0 numpy=1.26.4
+
+---------------------------------- Downloading the Dataset ----------------------------------
+
+NOTE: that we have the dataset in the git repo. However, we downloaded using the following commands.
+
+pip install gdown
+gdown 1W--Sm_BcphEC2snoF4zwPdHkkYGgAaUw -O data/perich_miller_population_2018/t_20130819_center_out_reaching.h5
+
+---------------------------------- Quick RUN ----------------------------------
+
+cd ~/neuro_comp_project/additional_scripts/quick_tutorials
+python quick_run.py
+
+- The process takes around  5 minutes to complete.

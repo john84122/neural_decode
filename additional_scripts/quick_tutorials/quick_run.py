@@ -117,15 +117,21 @@ fig_plot_hop = plot_training_curves(transformer_r2_log_hop, "R2 Scores for Hopfi
 fig_plot_tf_hop = plot_training_curves(transformer_r2_log_tf_hop, "R2 Scores for Transformer + Hopfield Decoder")
 
 fig_plot_tf.savefig(os.path.join(base_dir, "results", "quick_run_results", "training_curves_tf.png"))
+plt.close(fig_plot_tf)
+
 fig_plot_hop.savefig(os.path.join(base_dir, "results", "quick_run_results", "training_curves_hop.png"))
+plt.close(fig_plot_hop)
+
 fig_plot_tf_hop.savefig(os.path.join(base_dir, "results", "quick_run_results", "training_curves_tf_hop.png"))
+plt.close(fig_plot_tf_hop)
+
 print("Finished saving training curves - see the results folder.")
 print()
 
-print("--------Embedding Analysis--------")
-print()
-embeddings, computations = compute_umap_embeddings(tf_hopfield_model, val_loader, device=device)
-print(f"UMAP Embeddings Shape: {embeddings.shape}")
+#print("--------Embedding Analysis--------")
+#print()
+#embeddings, computations = compute_umap_embeddings(tf_hopfield_model, val_loader, device=device)
+#print(f"UMAP Embeddings Shape: {embeddings.shape}")
 
 print()
 print("--------Saliency Map Analysis--------")

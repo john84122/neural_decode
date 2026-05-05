@@ -6,7 +6,6 @@ import torch
 import numpy as np
 
 from umap import UMAP
-import plotly.express as px
 
 def collect_embeddings(model, dataloader, device):
     '''

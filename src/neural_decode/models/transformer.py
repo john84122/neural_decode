@@ -1,3 +1,7 @@
+'''
+Defines the transformer model for our experiments.
+'''
+
 import torch
 import torch.nn as nn
 from torch_brain.nn import FeedForward
@@ -64,6 +68,9 @@ class TransformerNeuralDecoder(nn.Module):
         return x
 
     def tokenize(self, data):
+        '''
+        Method for tokenizing the data before training. Call using model.transform = model.tokenize
+        '''
         # Same tokenizer as the MLP
 
         # A. Bin spikes

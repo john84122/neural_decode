@@ -13,10 +13,4 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.10.18"
 
-dependencies = [
-    "torch_brain",
-    "streamlit",
-    "matplotlib",
-    "pandas",
-    "numpy",
-]
+dependencies = []

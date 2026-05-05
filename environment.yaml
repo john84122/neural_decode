@@ -1,4 +1,4 @@
-name: streamlit_env
+name: neural_decode_env
 channels:
   - pytorch
   - conda-forge

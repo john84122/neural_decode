@@ -1,5 +1,5 @@
 '''
-    Simple script to evaluate the trained models.
+    Simple methods to evaluate the trained models.
 '''
 
 import torch
