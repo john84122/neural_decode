@@ -9,7 +9,7 @@ As our main scripts are in the src file, we will mainly discuss the src/neural_d
 
 Initially, our code was written in Jupyter notebooks. However, we decided to expand our code in the src files to make it slightly more professional and better suited to a git repo. In the next two subsections, we will go over the partitions of the directory at a (*High Level*) as well as the low level code itself (*Source Code*).
 
-## High Level Directory Description
+## High Level
 
 At a high level, we follow the document design pipeline to partition our code. This is shown in the figure below (If not seeing this in our git repo, please see the results/misc directory to see the data).
 
@@ -37,7 +37,7 @@ There are five different directories that partition our code:
 
 - This directory contains methods of collecting/producing lower-dimensional embeddings from these models, as well as producing saliency maps.
 
-## The Source Code
+## Source Code
 
 For each source file, we will review the main scripts in each case. While each script should be quite simple, we will discuss the functionality of each component.
 
@@ -49,7 +49,7 @@ This script contains helper functions that do fairly simple operations. Most fun
 
 *generate_sinusoidal_position_embeddings*
 
-* This script takes in the specified number of timesteps in our temporal dataset and applies the sin and cosine functions to the product of position and div_term in order to produce positional embeddings that the models use.
+* This script takes in the specified number of timesteps in our temporal dataset and applies the sin and cosine functions to the product of position and div_term in order to produce positional embeddings that the models use. This is a transformation discused in the cosyne tutorial for neural decoding and we implement in our methods (tutorial:https://cosyne-tutorial-2025.github.io)
 
 * For our dataset, the number of timesteps should always be 100, and the input dimension is 55.
 

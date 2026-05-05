@@ -45,42 +45,6 @@ def load_pretrained(ckpt_path, model):
     print("Done!")
     return model
 
-
-def get_dataset_config(brainset, sessions):
-    '''
-    Gets a configuration for the brain dataset.
-    '''
-    brainset_norms = {
-        "perich_miller_population_2018": {
-            "mean": 0.0,
-            "std": 20.0
-        }
-    }
-
-    config = f"""
-    - selection:
-      - brainset: {brainset}
-        sessions:"""
-    if type(sessions) is not list:
-        sessions = [sessions]
-    for session in sessions:
-        config += f"""
-          - {session}"""
-    config += f"""
-      config:
-        readout:
-          readout_id: cursor_velocity_2d
-          normalize_mean: {brainset_norms[brainset]["mean"]}
-          normalize_std: {brainset_norms[brainset]["std"]}
-          metrics:
-            - metric:
-                _target_: torchmetrics.R2Score
-    """
-
-    config = OmegaConf.create(config)
-
-    return config
-
 def main():
     pass
 
