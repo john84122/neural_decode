@@ -78,6 +78,40 @@ if __name__ == "__main__":
         
         st.plotly_chart(fig_val, theme = None)
 
+    st.divider()
+    st.write("## Specific Evaluation of Examples")
+    st.write("With these results, we can show specific examples that compare predictions from the model to predictions of the truth. Specifically, we can prediction positions of a cursor using the velocity. This will produce a path which we can visualize. To visualize examples where models do well and poorly, click the buttons below.")
+    
+    bc_1, bc_2 = st.columns(2)
+
+    with bc_1:
+        bt_path_1 = st.button("Good Predictions")
+
+    with bc_2:
+        bt_path_2 = st.button("Bad Predictions")
+
+    if bt_path_1 == True:
+        final_pd = pd.read_csv("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/evaluations/good_example_of_pos.csv")
+
+        fig = px.scatter(final_pd, x = "x_pos", y = "y_pos", animation_frame="time", color="label")
+        fig.update_traces(marker=dict(size=15))  
+        fig.update_xaxes(range=[-4, 4], constrain='domain')
+        fig.update_yaxes(range=[-2, 2], scaleanchor='x', scaleratio=1)
+        st.plotly_chart(fig)
+        st.write("To see traveling, zoom in. Note that we consider this a good prediction because in this case, all points are clearly traveling in the same direction.")
+
+    if bt_path_2 == True:
+        final_pd = pd.read_csv("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/evaluations/bad_example_of_pos.csv")
+
+        fig = px.scatter(final_pd, x = "x_pos", y = "y_pos", animation_frame="time", color="label")
+        fig.update_traces(marker=dict(size=15))  
+        fig.update_xaxes(range=[-5, 5], constrain='domain')
+        fig.update_yaxes(range=[-3, 3], scaleanchor='x', scaleratio=1)
+        st.plotly_chart(fig)
+        st.write("To see traveling, zoom in. Note that we consider this a bad prediction because in this case, all points are traveling in fairly different directions.")
+
+
+    st.divider()
     st.write("## Main Findings")
     st.write("In all cases, these models perform higher than the 0.5 R2 correlation, where final validation scores are:")
     st.write("- Transformer Model: 0.715")

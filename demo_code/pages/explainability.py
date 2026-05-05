@@ -104,7 +104,7 @@ if __name__ == "__main__":
           st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/demo_images/saliency_map_imgs/sal_tf_high.png")
 
      st.write("What we find is that there are cases in which models decisions are very similar and also very different.")
-     st.write("To caputre this difference, we can also plot the averge diffence between all models in a heatmap shown below")
+     st.write("To caputre this difference, we can also plot the averge diffence between all models in a heatmap shown below:")
 
      st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/average_differences.png")
-     st.write("Note that most models are actually quite similar to each other where mean difference comparisons are consistently the value of 3. But, note that the models that are the most different are the hopfield and the transformer from each other. This is incomparosn of any of these two more pure models and their differences from the hybrid transformer and hopfield network.")
+     st.write("Note that most models are actually quite similar to each other where mean difference comparisons are consistently the value of 3. But, note that the models that are the most different are the hopfield and the transformer from each other. This is incomparosn of any of these two more pure models and their differences from the hybrid transformer and hopfield network. We conduct a 1 sample t test on the absolute differences computed and it seems that the p values are all claim significants. This indicates that the differences should be significantly different from zero. This is an indication that the models may be fairly different from each other.")

@@ -9,20 +9,26 @@ def main():
     st.write("  - Are transformers and Hopfield Networks good for Neural Decoding?")
 
     st.write()
-    st.write("For the first question, we find sufficient evidence that Hopfield and Transformer Models are similar to each. This is seen in both the similarities in accuracies, attribution maps, and embeddings.")
+    st.write("For the first question, we find sufficient evidence that Hopfield and Transformer Models are fairly similar to each. This is seen in both the similarities in accuracies and embedding spaces. While we do do t-tests on the differences between attribution maps and find that differences between attribution maps is significnatly different from zero, there are deep limitations to the methods we use in this case. We wil address this in the limitations section.")
     st.write()
     st.write("For the second question, we find that both transformers and hopfield networks are good for neural decoding. Their R2 validation was far beyond the 0.5 correlation score we wanted these models to beat.")
 
+
+    st.divider()
     st.write("## Limitatations")
 
     st.write("While we make claims that there are similarities between these architectures, there are limitations to how strong we can claim this similarity is. Our first claim was that these models are similar because they achieve the same accuracies. While R2 is a good measure of performance, note that there is more than one way to do a task. So, these models can be very different in how they approach a task and at the same time do well on predicting velocity. We attempt to address this limitation using post hoc analysis. However, methods such as UMAP and saliency maps are imperfect descriptions of what a model uses for the neural decoding task and the high dimensional embedding space.")
     st.write()
+    st.write("In addition, we did not check our normality assumption for the T-Test. The expectation is that the differences and the number of timesteps we take should be large enough to do a t-test, more work needs to be done to actually show normality. Thus, the t-test results should be taken with a grain of salt.")
+    st.write()
     st.write("For our performance evaluation, note that we do not do a very thorough hyperparameter search. Thus, these models might be suboptimal and with more complex methods, we can find models that have much larger validation R2 validation scores.")
 
+    st.divider()
     st.write("## Future Work")
 
     st.write("For future work, more time should go into more models of a varying architectures. By do a comparison between these models and the three models we chose, we can gain a better understand of how significant effectively these similarities between the three models are.")
 
+    st.divider()
     st.write("## Citations")
 
     st.write('''

@@ -372,6 +372,8 @@ if __name__ == "__main__":
     st.write("- As one can observe, it is really difficult to understand how these activities can be used to predict actions")
     st.write("- For example, there is a lot of activition in velocity at 20 seconds of this recording. But, there is little velocity movement at 13 minutes. Despite this, the spiking activity we observe looks almost complete same in. the left most graph.")
 
+    st.divider()
+
     st.write("## Hopfield Networks, Transformers, and Equivalences between Models")
 
     st.write("Another aspect of our experiment is focused on the connections between transformers and hopfield networks.")
