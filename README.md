@@ -74,7 +74,7 @@ conda install "numpy<2"
 - However, we do have a working environment to run this code whose packages are shown in the environment.yaml file. It fails 
 
 ## Instructions for quick-run script and demo
-1. Conducting a Quick Run of Experiments:
+### Conducting a Quick Run of Experiments:
 
 For a quick evaluation of pipeline, see the quick Tutorials in the additional_scripts directory. we have two options for you.
 
@@ -98,7 +98,7 @@ At a high level, this is what should be shown:
     6. The dimensions of UMAP embeddings.
     7. The dimensions of Saliency maps along with the minimum and maximum values.
 
-2. Full Evaluation Pipeline:
+### Full Evaluation Pipeline**
 
 Our full analysis is in the additional_scripts/full_pipeline area of our code. All of these are jupyter notebooks, one of which is expected to be run on google colab. However, all functions called in these notebooks should be 
 
@@ -107,7 +107,7 @@ Our full analysis is in the additional_scripts/full_pipeline area of our code. A
 - For post hoc analysis, run the post_hoc_analysis.ipynb script.
 
 
-1. Demo code:
+### Demo code:
 
 All demo code is within the **demo_code** Directory. To run, do the following on a laptop with some web browser.
 
