@@ -42,14 +42,16 @@ def flatten_embeddings_and_labels(embeddings, labels):
     '''
 
     output_embeddings = []
-    output_labels = []
+    output_labels_vel = []
+    all_labels = []
 
     for k in range(embeddings.shape[0]):
         for t in range(embeddings.shape[1]):
             output_embeddings.append(embeddings[k, t, :])
-            output_labels.append(np.linalg.norm(labels[k, t]))
+            output_labels_vel.append(np.linalg.norm(labels[k, t]))
+            all_labels.append(labels[k, t])
 
-    return np.array(output_embeddings), np.array(output_labels)
+    return np.array(output_embeddings), np.array(output_labels_vel), np.array(all_labels)
 
 def compute_umap_embeddings(model, dataloader, n_components=3, metric="euclidean", device = "cpu"):
     '''
@@ -57,12 +59,12 @@ def compute_umap_embeddings(model, dataloader, n_components=3, metric="euclidean
     '''
 
     embeddings, labels = collect_embeddings(model, dataloader, device=device)
-    out, lbs_mag = flatten_embeddings_and_labels(embeddings, labels)
+    out, lbs_mag, all_labels = flatten_embeddings_and_labels(embeddings, labels)
 
     embedder = UMAP(n_components=n_components, metric=metric)
     umap_embeddings = embedder.fit_transform(out)
 
-    return umap_embeddings, lbs_mag
+    return umap_embeddings, lbs_mag, all_labels
 
 def main():
     pass

@@ -1,6 +1,6 @@
-
-import pandas as pd
-import streamlit as st
+'''
+Augmented Code for Graphing.
+'''
 
 import h5py
 import numpy as np
@@ -12,7 +12,6 @@ from bokeh.layouts import column
 from bokeh.models import ColumnDataSource, RangeTool
 import numpy as np
 
-from streamlit_bokeh import streamlit_bokeh
 from bokeh.models import Button
 from bokeh.models.callbacks import CustomJS
 from bokeh.layouts import row, column
@@ -232,6 +231,7 @@ def make_plot(data, add_play_controls=False):
     else:
       return row(p_spikes, column(p_reach_intervals, p_cursor_vel_x, p_cursor_vel_y))
 
+
 def load_h5_full(filepath):
     def recursively_load(obj):
         if isinstance(obj, h5py.Dataset):
@@ -305,101 +305,6 @@ def plot_data(fl):
 
   return p
 
-if __name__ == "__main__":
-    st.set_page_config(layout="wide")
-
-    st.write("# Background")
-
-    st.write("In this section, we will discuss two main concepts that motivate and center our task")
-
-    st.write("## Neural Decoding")
-
-    st.write("- The first neuro science connection of our experiments is associated to neural decoding.")
-
-    st.write("### Motivation and Definition Neural Decoding")
-
-    st.write("As we have discussed in class, computation in the model occurs between the complex interaction of neurons in our brain. Neurons have a very simple structure:")
-    st.write("  - **Dendrites:** These are the input connections that takes in spikes from neurons.")
-    st.write("  - **Cell Body:** Takes in inputs and integrates it into a internal state.")
-    st.write("  - **Axon:** when internal state reaches a critical point, a output signal travels through this component.")
-    st.write("  - **Synapses:** This is the area that takes in the signal transmitted from other neurons.")
-    st.write("*These definitions are adapted from the intro to neural networks given in the canvas modules.*")
-    st.write()
-    st.write("There are my different motivations for why we want to understand how complex interactions lead towards these behaviors. There are many different ways at capturing the connections between the macroscopic and microscopic cognition in the brain. In addition, machine learning approaches have been very useful of illuminating the connections between brain activity and high level cognition.")
-    st.write("Some examples include:")
-
-    c1, c2, c3 = st.columns(3, vertical_alignment="center")
-
-    with c1:
-        st.write("#### Analysis of Brain Syndromes")
-        st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/split_brain.png", caption="Illustration of Split Brain Experiment (Reisbergch et al.)")
-        st.write("We can people with brain damage to understand how large regions of the brain connect to higher level cognition.")
-
-
-    with c2:
-        st.write("#### Evolutionary Methods")
-        st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/cma_es_image.png", caption="Illustration of Evolutionary Based Methods from Wang et al.")
-        st.write("We can use machine learning methods to find optimal input stimuli to maximize activity of the brain. The hope is that we can interpret the activations.")
-
-    with c3:
-        st.write("#### Biological Models")
-        st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/flywire.png", caption="Example of FlyWire Model (Dorkenwald et al. and Schlegel et al.)")
-        st.write("People can build massive diagrams and computational models of the brain like the Fruit Fly")
-    
-    st.write("While all these methods come with strengths and weaknesses, the most direct appraoch of understanding the mapping between activity and action is through Neural Decoding.")
-
-    st.write("### The Neural Decoding Task: Rapid Learning")
-
-    st.write("Neural decoding is the basic concept of building models which take in inputs of spiking activity and predicting the action. Generally, one sticks sensors into the brain of a animal (like Macaque Monkey) and records neuron activity as well as the actions of the monkey on a task it was trained on.")
-    st.write("The key idea idea of Perich et al is that when people learn something, it is often thought that plasticity of neurons lead toward the long term memory of that skill. However, some skills require one to learn rapidly, especially related to one shot learning which use motor skills (movement). Perich et al. believes that rather than plasticity inside the PMd and M1 cortex connected lead to rapid learning, it is rather the activity of the neurons themselves.")
-    st.write()
-    st.write("To measure this, they look at activity of two areas of the brain. First, they study the activations of the M1 and PMd areas of the brain of Macaque monkeys. They surjically placed multi-electrode arrays and collected 96 channels of neural activity. 137 to 257 PMd Neurals and 55 to 93M1 neurons were collected for analysis. The task that they were asked to do was that they were to move a 2-D planar cuersor to control a cursor on a computer screen. The goal was a center -out reaching task.")
-    st.write()
-    st.write("Their findings indicate that there were no indication that synaptic connectivity was the cause of the rapid learning. But also that null activity of neurons could be modified in order to change M1 activity which possibly explains the rapid learning.")
-
-    st.write("### Our Dataset")
-
-    st.write("The dataset associated to the perich miller et al. task consists of spiking activity which can be visualied below.")
-    st.write("- The bottom left graph shows spiking activity of the 55 of 96 channels from the experiment. The x-axis is time and y axis indicates the sensor.")
-    st.write("- The bottom most right graphs are the x and y velocity vectors of the monkey moving the cursors. The goal is to predict these movements.")
-
-    data_path = "/Users/johannesbauer/Documents/Coding/neuro_comp_project/data/perich_miller_population_2018/t_20130819_center_out_reaching.h5"
-    new_graph = plot_data(data_path)
-
-    streamlit_bokeh(new_graph, use_container_width=True, theme = "light_minimal")
-    st.write("The graph comes from adapted code in a Cosyne Tutorial on Transformers: https://cosyne-tutorial-2025.github.io")
-
-    st.write("- As one can observe, it is really difficult to understand how these activities can be used to predict actions")
-    st.write("- For example, there is a lot of activition in velocity at 20 seconds of this recording. But, there is little velocity movement at 13 minutes. Despite this, the spiking activity we observe looks almost complete same in. the left most graph.")
-
-    st.write("## Hopfield Networks, Transformers, and Equivalences between Models")
-
-    st.write("Another aspect of our experiment is focused on the connections between transformers and hopfield networks.")
-    st.write("Transformers and Hopfield Networks are two models that are defined below.")
-
-
-    c1_1, c1_2 = st.columns(2, vertical_alignment="bottom")
-
-    with c1_1:
-        st.write("#### Hopfield Networks")
-        st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/hopfield_network.png", caption="Visual Image of a Hopfield Layer from Thakur et al.")
-        st.write("A energy based method in which neurons are all interconnected to each other. The output of the model is proportional to the similarity between weights of the neurons and input.")
-
-    with c1_2:
-        st.write("#### Transformers")
-        st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/attention_mechanism.png", caption="Example of Attention Mechanism from Vaswani et al.")
-        st.write("This model uses a machine learning notion of attention in order to learn and highlight components of an input that are important for a task.")
-
-    
-    st.write("One of the biggest findings of a paper named \"Hopfield Networks is All You Need\" is that there is a clear theoretical equivalents between these two seamingly different architectures. They demonstrate the similarity between these models using training on tabular datasets.")
-    st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/hopfield_transformer_equiv_img.png", caption="Equivalence between New Hopfield Networks and Transformers from Ramsauer et al.")
-
-    st.write("One of the problems with their paper is the limited quantitative evidence of the equivalence. Small datasets are fine for a simple experiment, but there is a want to show equivanece of these models in a more rigorous way.")
-
-    st.write("## Our Main Problems")
-    st.write("Given that we have shown the difficulty of neural decoding and the limitations of the Ramsauer et al. paper, we provide the two questions taht we want to answer in this paper:")
-
-    st.write("  - How equivalent are Transformer Models to Hopfield Networks in their performance on Neural Decoding Tasks?")
-    st.write("  - Are transformers and Hopfield Networks good for Neural Decoding?")
-
-    st.write("Our Experiments are discussed in the experiment_and_design section.")
+def main():
+    fl = "/Users/johannesbauer/Documents/Coding/neuro_comp_project/data/perich_miller_population_2018/t_20130819_center_out_reaching.h5"
+    plot_data(fl)

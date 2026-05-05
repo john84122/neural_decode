@@ -3,17 +3,47 @@ import streamlit as st
 
 
 if __name__ == "__main__":
-    st.write("# Transforms versus Hopfield Networks for Neural Decoding Tasks")
-    st.write("# Motivation and problems")
-    st.write('''The goal of this project is to investigate whether Hopfield layers can replace multi-head self-attention in Transformer models for neural decoding tasks. The main research question is: Can Hopfield layers replace multi-head self-attention in Transformers while maintaining or improving performance and interpretability in neural decoding? To answer this, we will design a Transformer model and a corresponding Hopfield-based model that are theoretically equivalent. We will train both models on neural decoding data to predict reaching movements from neural activity. We will compare their performance in terms of accuracy, training stability, and the representations they learn through post hoc analysis.''')
+    st.set_page_config(layout="wide")
+    st.write("## Neural Decoding via Transformer and Hopfield Models")
+    
+    c1, c2 = st.columns(2, vertical_alignment="center")
+    with c1:
+        st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/icon_for_git_page.png", width=500)
 
+    with c2:
+        st.markdown(
+            "<h2 style='text-align: center;'>Decoding the Illusive Spiking Activity of the Mind</h2>", 
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            "<h6 style='text-align: center;'>Created by Elif Ercek and Johannes Bauer</h6>", 
+            unsafe_allow_html=True
+        )
+        st.write("")
+
+    st.divider()
+
+    st.write("# Motivation")
+    st.write('''Neural decoding is the task of interpreting spiking activity in a animal brain and mapping it to actions of the animal. Given the complex dynamics of the brain, this is a nontrivial task. To solve this problem, deep neural networks, such as transformers have been useful for neural decoding tasks. However, we seek to understand how a variety of models, including Hopfield Models, Hybrid Models, and Transformers perform on Neural Decoding datasets.''')
+    st.write('''  ''')
+    st.write('''In addition, a second motivation of this experiment is that some work has suggested one can produce hopfield networks that are equivalent in nature to transformers. In this paper (Ramsauer et al.), they provide some evidence that this is true, however they only use limited number of datasets to show this equivalence. Thus, there is a need for quantitative, rather than merely theoretical, evidence to show equivalence between these two models. In addition, there are questions around whether hybrid Hopfield and Transformer models can be equivalent to both Hopfield Networks and Transformer Models. Both concepts are what we attempt to study in our experiments.''')
+
+    st.divider()
+
+    st.write("# Main Research Questions")
+
+    st.write("The Main research questions that we want to answer are:")
+    st.write("  - How equivalent are Transformer Models to Hopfield Networks in their performance on Neural Decoding Tasks?")
+    st.write("  - Are transformers and Hopfield Networks good for Neural Decoding?")
+
+    st.divider()
 
     st.write("## Navigation")
-    st.write("In this work, we have five different sections. EAch are listed and described below.")
+    st.write("In this work, we have five different sections. Each are listed and described below.")
 
     clmns = st.columns(5)
 
-    clmns_out = st.columns(2)
+    clmns_out = st.columns(2, vertical_alignment="center")
 
     if "active_section" not in st.session_state:
         st.session_state.active_section = None
@@ -41,12 +71,13 @@ if __name__ == "__main__":
     if st.session_state.active_section == "background":
 
         with clmns_out[0]:
-            st.write("## Background ")
-            st.write("We will discuss the simple motivations of the project that include")
+            st.write("## Background")
+            st.write("In this section, we discuss the main ideas and motivations of the project. This includes:")
             st.write('''
                     - Neural Decoding Tasks
                     - Transformers
-                    - Hopfield Networks.
+                    - Hopfield Networks
+                    - Equivalences between Transformers and Hopfield Networks
                      ''')
 
         if st.button("Go To Page", key = "background"):
@@ -54,17 +85,21 @@ if __name__ == "__main__":
 
 
         with clmns_out[1]:
-            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/image.png")
+            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/image.png", caption="Image from Perich et al., 2018", width="stretch")
+            # https://www.cell.com/neuron/fulltext/S0896-6273(18)30832-8?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627318308328%3Fshowall%3Dtrue
+
 
     if st.session_state.active_section == "experiments":
 
         with clmns_out[0]:
             st.write("## Experiments")
-            st.write("We will discuss our experiments and components such as:")
+            st.write("In this section, we discuss our experiments. This section focuses on:")
             st.write('''
+                    - Our Main Problem
                     - Datasets
                     - Models
-                    - Evaluation and Post Analysis
+                    - Train Setup
+                    - Evaluation and Post Analysis Setup
                      ''')
 
         if st.button("Go To Page", key="experiments"):
@@ -72,17 +107,17 @@ if __name__ == "__main__":
 
 
         with clmns_out[1]:
-            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/hopfield_network.png")
+            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/hopfield_layer.png", width="stretch", caption="Hopfield Layer from Ramsauer et al, 2021")
 
     if st.session_state.active_section == "results":
 
         with clmns_out[0]:
-            st.write("## Summary ")
-            st.write("We will provide a summary of our work, including")
+            st.write("## Summary")
+            st.write("For this section, we present the training results and outcomes. This includes:")
             st.write('''
                     - Validation Scores
                     - Performance Trends
-                    - Observations from Graphs
+                    - Key Conclusions of Our Analysis
                      ''')
 
         if st.button("Go To Page", key="summary"):
@@ -90,17 +125,17 @@ if __name__ == "__main__":
 
 
         with clmns_out[1]:
-            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/results_for_model.png")
+            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/results_for_model.png", width="stretch")
 
     if st.session_state.active_section == "xai":
 
         with clmns_out[0]:
-            st.write("## Experiments")
-            st.write("We will discuss our experiments and components such as:")
+            st.write("## Embeddings and Attribution")
+            st.write("We will present embeddings and saliency maps analysis")
             st.write('''
-                    - Datasets
-                    - Models
-                    - Evaluation and Post Analysis
+                    - UMAP Embeddings for Each Model
+                    - Saliency Maps of the Models
+                    - Conclusiosn From the Qualitative Analysis
                      ''')
 
         if st.button("Go To Page", key="xai"):
@@ -108,17 +143,17 @@ if __name__ == "__main__":
 
 
         with clmns_out[1]:
-            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/hopfield_network.png")
+            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/umap_image.png", width="stretch", caption = "Image is from McInnes et al., 2018")
 
     if st.session_state.active_section == "summary":
 
         with clmns_out[0]:
             st.write("## Summary ")
-            st.write("We will provide a summary of our work, including")
+            st.write("Finally, this section summarizes the main findings. This includes:")
             st.write('''
-                    - Main Results
-                    - Further Work and Conclusions
+                    - Discussion on Similarity Between Models
                     - Limitations of Work
+                    - Future Directions
                      ''')
         #go_to_bt = st.button("Go To Page")
 
@@ -127,4 +162,4 @@ if __name__ == "__main__":
 
 
         with clmns_out[1]:
-            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/results_for_model.png")
+            st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/summary.jpeg", width="stretch")
