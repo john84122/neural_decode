@@ -2,7 +2,7 @@
 
 ![Our Logo](results/misc/icon_for_git_page.png)
 
-This project is to three models on a neural decoding tasks and demonstrate the equivalence between Hopfield Models, Transformers, and a combined Hopfield + Transformer Architecture. We establish this comparison by using their performance on a neural decoding datasets and differences in Saliency Maps.
+This project is to train three models on a neural decoding tasks and demonstrate the equivalence between Hopfield Models, Transformers, and a combined Hopfield + Transformer Architecture. In addition, we evaluate the utility of these models on neural decoding tasks. We establish this comparison by using their performance on a neural decoding datasets and differences in Saliency Maps.
 
 ## Collaborations
 
@@ -76,7 +76,7 @@ conda install "numpy<2"
 ## Instructions for quick-run script and demo
 ### Conducting a Quick Run of Experiments
 
-For a quick evaluation of pipeline, see the quick Tutorials in the <mark>additional_scripts/quick_tutorials</mark> directory. we have two options for you.
+For a quick evaluation of pipeline, see the quick Tutorials in the <mark>**additional_scripts/quick_tutorials**</mark> directory. we have two options for you.
 
 - A Jupyter notebook method: **quick_run.ipynb**
 
@@ -86,7 +86,9 @@ For a quick evaluation of pipeline, see the quick Tutorials in the <mark>additio
 
     - This is the quick_run that we used. Note that an ugly warning occurs at the end of running the script. However, we believe it is safe to ignore as it does not seem to indicate any of our code is incorrect.
 
-The exact results of our analysis can be seen in the results/quick_run_results directory. The output on the command line is in output.txt and also 3 figures.
+    - To run, navigate to the *additional_scripts/quick_run* directory and run script using *python quick_run.py*.
+
+The exact results of our analysis can be seen in the **results/quick_run_results directory**. The output on the command line is in output.txt and also 3 figures.
 
 At a high level, this is what should be shown:
 
@@ -96,16 +98,15 @@ At a high level, this is what should be shown:
     4. Training information for three Epochs of each Model as well as R2 validation score.
     5. Three saved images in the results/quick_run_results directory showing training dynamics curves.
     6. The dimensions of UMAP embeddings.
-    7. The dimensions of Saliency maps along with the minimum and maximum values.
+    7. The dimensions of Saliency maps along with the minimum and maximum attribution values (between 0 and 1).
 
 ### Full Evaluation Pipeline
 
-Our full analysis is in the additional_scripts/full_pipeline area of our code. All of these are jupyter notebooks, one of which is expected to be run on google colab. However, all functions called in the notebook should be discuseed briefly in the src scripts.
+Our full analysis is in the **additional_scripts/full_pipeline** area of our code. All of these are jupyter notebooks, one of which is expected to be run on google colab. However, all functions called in the notebook should be discuseed briefly in the src scripts.
 
-- For anything due to training and evaluating models, please see the Project_Cognitive.ipynb using google colab. There are already cells in this script to take care of setting up important Python Libraries and very detailed notes on the scripts.
+- For anything due to training and evaluating models, please see the *Project_Cognitive.ipynb* using google colab. There are already cells in this script to take care of setting up important Python Libraries and very detailed notes on the scripts.
 
-- For post hoc analysis, run the post_hoc_analysis.ipynb script.
-
+- For post hoc analysis, run the *post_hoc_analysis.ipynb* script using the conda environment (not google colab). Alos, the visualizations and saliency map analysis are in *study_saliency.ipynb* and *new_evaluation_visualization.ipynb*. These last two scripts are more scratch scripts to produce visuals specifically for the demo - not the main component of our project analysis.
 
 ### Demo code
 
@@ -127,8 +128,8 @@ Output of models and data used will be in the data and results directory. Specif
 * **data/perich_miller_population_2018** - Directory containing the data used to train our transformers and hopfield networks.
 * **results/models** - Directory containing the models we trained (.pth files)
 * * **results/evaluations** - Where all accuracies of models over each epoch were saved.
-* **results/embeddings** - Directory containing the embeddings we analyzed.
-* **results/explanations** - Directory containing the explanaitions we have collected.
+* **results/embeddings** - Directory containing the embeddings we analyzed - separated by model.
+* **results/saliency_maps** - Directory containing the attribution maps we have collected.
 
 ## Links to External Datasets
 
@@ -151,4 +152,6 @@ This dataset will be downloaded into the data/perich_miller_population_2018 dire
 
 - For a good description of the repository, please see the the **code_walkthrough.md** markdown file.
 - For our policies and usages on Generative LLMs, see our **appendix_ai.md** file.
-- Configuration commands are in **configuration.txt**
+- Configuration commands for the anaconda environment and running quick_run.py script are in **configuration.txt** file.
+- The dependency file is in the **environment.yaml** file.
+- Source files are located in the **src/neural_decode** folder.
