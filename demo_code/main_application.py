@@ -103,7 +103,7 @@ if __name__ == "__main__":
                      ''')
 
         if st.button("Go To Page", key="experiments"):
-            st.switch_page("pages/experiments_and_design.py")
+            st.switch_page("pages/experiment_and_design.py")
 
 
         with clmns_out[1]:

@@ -2,7 +2,7 @@
 
 ![Our Logo](results/misc/icon_for_git_page.png)
 
-This project is to three models on a neural decoding tasks and demonstrate the equivalence between Hopfield Models, Transformers, and a combined Hopfield + Transformer Architecture. We establish this comparison by using their performance on a validation set and differences in Saliency Maps.
+This project is to three models on a neural decoding tasks and demonstrate the equivalence between Hopfield Models, Transformers, and a combined Hopfield + Transformer Architecture. We establish this comparison by using their performance on a neural decoding datasets and differences in Saliency Maps.
 
 ## Collaborations
 
@@ -30,7 +30,7 @@ conda activate neural_decode_env
 
 ```
 
-Second, we need to download the required python libraryes:
+Second, we need to download the required python libraries:
 
 ```bash
 conda install -c conda-forge "numpy<2"
@@ -51,7 +51,7 @@ pip install -e .
 conda install numba=0.60.0 numpy=1.26.4
 ```
 
-When pip installed, you can use the code as a Python Library named neural_decode. A simple example is shown below:
+When pip installed, you can use the code as a Python Library named neural_decode. A simple example of what you would write in a python script is shown below:
 
 ```python
 from neural_decode.models.hopfield_only import *
@@ -71,12 +71,12 @@ conda install "numpy<2"
 
 - Because of this, we have removed the UMAP experimentation in the quick_run.py and .ipynb scripts. If one wants to run umap analysis, one may have to collect embeddings using one environment and using another environment to produce the UMAP embeddings.
 
-- However, we do have a working environment to run this code whose packages are shown in the environment.yaml file. It fails 
+- However, we do have a working environment to run this code whose packages are shown in the environment.yaml file.
 
 ## Instructions for quick-run script and demo
 ### Conducting a Quick Run of Experiments
 
-For a quick evaluation of pipeline, see the quick Tutorials in the additional_scripts directory. we have two options for you.
+For a quick evaluation of pipeline, see the quick Tutorials in the ==additional_scripts/quick_tutorials== directory. we have two options for you.
 
 - A Jupyter notebook method: **quick_run.ipynb**
 

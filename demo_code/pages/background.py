@@ -385,7 +385,7 @@ if __name__ == "__main__":
     with c1_1:
         st.write("#### Hopfield Networks")
         st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/real_images/hopfield_network.png", caption="Visual Image of a Hopfield Layer from Thakur et al.")
-        st.write("A energy based method in which neurons are all interconnected to each other. The output of the model is proportional to the similarity between weights of the neurons and input.")
+        st.write("A energy based method in which neurons are all interconnected to each other.")
 
     with c1_2:
         st.write("#### Transformers")

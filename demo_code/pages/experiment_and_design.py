@@ -8,13 +8,13 @@ def main():
     st.write("# Experiment and Design")
 
     st.write("For our experiment, we design the pipelin as shown below:")
-    st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/document_design_img.png", caption="Image of our Model Pipeline.")
+    st.image("/Users/johannesbauer/Documents/Coding/neuro_comp_project/results/misc/document_design_img.png", caption="Image of our Initial Model Pipeline. Note that our setup does differ a bit from this. Specifically, we do not use captum for computing attribution maps. Second, we do not do a separate test accuracy. We only use a validation and train dataset.")
 
     st.write("Our experiments consist of 4 different components")
-    st.write("1. We preprocess and choose a dataset.")
-    st.write("2. We build three different model architectures.")
-    st.write("3. We train and Evaluate our models on a validation set.")
-    st.write("4. We perform embedding and attribution based analysis.")
+    st.write("1. We preprocess and choose a dataset (preprocessing and dataset partitioning).")
+    st.write("2. We build three different model architectures (model selection).")
+    st.write("3. We train and evaluate our models on a validation set (training and accuracy evaluation).")
+    st.write("4. We perform embedding and attribution based analysis (post hoc analysis).")
     st.write()
     st.write("Each of these components are discussed in detail below.")
 
@@ -72,7 +72,7 @@ def main():
     st.write("## Evaluation of Success")
     st.write("We use R2 correlation between the predicted and true validation velocities between the two models in order to determine whether these models were successful at learning the task. We expect that the model will perform well if each model scores an R2 validation above .5 becasue this is the score that indicates there is a strong linear correlation between scores in any statistics background.")
     st.write()
-    st.write("We will also consider whether models are different from each other using statistical tests (1 sample t-test) on the differences between explanations on the attribution maps. The idea is that we hope that the differences between explanations has a mean value no different from zero. This should be some indication that explanations should be very different between the models.")
+    st.write("We will also consider whether models are different from each other using statistical tests (1 sample t-test) on the differences between explanations on the attribution maps. The idea is that we hope that the differences between explanations has a mean value no different from zero (p value not significant). This should be some indication that explanations should not significantly different between any two models.")
     st.write("Else, the UMAP embeddings will be qualitatively analyzed and use to determine difference between their embedding spaces.")
 
 
