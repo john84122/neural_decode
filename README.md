@@ -127,7 +127,7 @@ Output of models and data used will be in the data and results directory. Specif
 
 * **data/perich_miller_population_2018** - Directory containing the data used to train our transformers and hopfield networks.
 * **results/models** - Directory containing the models we trained (.pth files)
-* * **results/evaluations** - Where all accuracies of models over each epoch were saved.
+* **results/evaluations** - Where all accuracies of models over each epoch were saved.
 * **results/embeddings** - Directory containing the embeddings we analyzed - separated by model.
 * **results/saliency_maps** - Directory containing the attribution maps we have collected.
 
@@ -137,7 +137,7 @@ The links to the datasets we collected is from the torchbrain repository.
 
     - Link: https://brainsets.readthedocs.io/en/latest/glossary/brainsets.html#perich-miller-population-2018
 
-The data for training should already be there. However, to download the dataset, type the following in the command line.
+The data for training should already be this file. However, to download the dataset if not found, type the following in the command line.
 
 ```bash
 cd ./neuro_comp_project
@@ -146,7 +146,7 @@ pip install gdown
 gdown 1W--Sm_BcphEC2snoF4zwPdHkkYGgAaUw -O data/perich_miller_population_2018/t_20130819_center_out_reaching.h5
 ```
 
-This dataset will be downloaded into the data/perich_miller_population_2018 directory. It is important the data is in this directory with the data/perich_miller_population_2018 directory.
+This dataset will be downloaded into the **data/perich_miller_population_2018 directory**. It is important the data is located in the directory with the data/perich_miller_population_2018 directory.
 
 ## Additional Details
 

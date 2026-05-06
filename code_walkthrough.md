@@ -11,9 +11,7 @@ Initially, our code was written in Jupyter notebooks. However, we decided to exp
 
 ## High Level
 
-At a high level, we follow the document design pipeline to partition our code. This is shown in the figure below (If not seeing this in our git repo, please see the results/misc directory to see the data).
-
-![Document Design Object](results/misc/document_design_img.png)
+At a high level, we lightly follow the document design pipeline to partition our code. This is shown in the figure below (If not seeing this in our git repo, please see the results/misc directory to see the data).
 
 There are five different directories that partition our code:
 
