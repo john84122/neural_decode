@@ -76,7 +76,7 @@ conda install "numpy<2"
 ## Instructions for quick-run script and demo
 ### Conducting a Quick Run of Experiments
 
-For a quick evaluation of pipeline, see the quick Tutorials in the ==additional_scripts/quick_tutorials== directory. we have two options for you.
+For a quick evaluation of pipeline, see the quick Tutorials in the <mark>additional_scripts/quick_tutorials</mark> directory. we have two options for you.
 
 - A Jupyter notebook method: **quick_run.ipynb**
 
