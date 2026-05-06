@@ -149,5 +149,6 @@ This dataset will be downloaded into the data/perich_miller_population_2018 dire
 
 ## Additional Details
 
-- For a good description of the repository, please see the the **description_of_repo.md** markdown file.
+- For a good description of the repository, please see the the **code_walkthrough.md** markdown file.
 - For our policies and usages on Generative LLMs, see our **appendix_ai.md** file.
+- Configuration commands are in **configuration.txt**
